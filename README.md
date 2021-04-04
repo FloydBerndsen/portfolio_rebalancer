@@ -11,6 +11,6 @@ This script shows a basic example of how you can do this, using CSV data as an i
 
 ## How to run the script
 1. Install the requirements.txt using `pip install -r requirements.txt`
-2. Edit the example_data.csv as desired
-3. Adjust the `target_allocation` dict inside of src/rebalance.py
-4. Run src/rebalance.py
+2. Edit the [data/example_data.csv](data/example_data.csv) as desired
+3. Adjust the `target_allocation` dict inside of [src/rebalance.py](src/rebalance.py)
+4. Run [src/rebalance.py](src/rebalance.py)
