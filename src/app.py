@@ -1,10 +1,13 @@
 from flask import Flask, render_template
+from flask_wtf.csrf import CSRFProtect
 from io import BytesIO
-from form import DataInput
+from form import DataInput, StockConfigForm
 import pandas as pd
 from rebalance import rebalance, current_allocation
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "boop"
+csrf = CSRFProtect(app)
 
 
 @app.route("/")
@@ -38,3 +41,14 @@ def submit():
         )
 
     return render_template("form.html", form=form)
+
+
+@app.route("/dynamic", methods=("GET", "POST"))
+@csrf.exempt
+def testform():
+    user_addresses = [
+        {"name": "First Address", "proportion": "test"},
+        {"name": "First Address", "proportion": "test"},
+    ]
+    form = StockConfigForm(configuration=user_addresses)
+    return render_template("dynamic.html", form=form)
