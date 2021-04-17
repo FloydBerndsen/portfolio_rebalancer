@@ -4,6 +4,5 @@ from wtforms.validators import DataRequired
 from flask_wtf.file import FileField, FileRequired
 
 
-class MyForm(FlaskForm):
-    name = StringField("name", validators=[DataRequired()])
+class DataInput(FlaskForm):
     csv = FileField("csv", validators=[FileRequired()])

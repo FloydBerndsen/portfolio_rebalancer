@@ -1,9 +1,10 @@
-{%- if name -%}
-<p>Hello, {{ name }}!</p>
-{%- endif -%}
-{{ df|safe }}
-<form method="POST" enctype="multipart/form-data" action="/submit">
-    {{ form.name.label }} {{ form.name(size=20) }}
-    {{ form.csv.label }} {{ form.csv }}
-    <input type="submit" value="Go">
-</form>
+<section class="form">
+    <form method="POST" enctype="multipart/form-data" action="/submit">
+        {{ form.name.label }} {{ form.name(size=20) }}
+        {{ form.csv.label }} {{ form.csv }}
+        <input type="submit" value="Go">
+    </form>
+</section>
+<section class="result">
+    {{ df|safe }}
+</section>
